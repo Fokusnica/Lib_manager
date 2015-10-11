@@ -71,8 +71,37 @@ end
   # Возвращаемое значение 
   # - имя и фамилия автора транслитом. ("Ivan Franko")
   def author_translit ukr_name
-    ukr_name=ukr_name.gsub('А','A').gsub('а','a').gsub('Б','B').gsub('б','b').gsub('В','V').gsub('в','v').gsub('Г','H').gsub('г','h').gsub('Ґ','G').gsub('ґ','g').gsub('Д','D').gsub('д','d').gsub('Е','E').gsub('е','e').gsub('Є','Ye').gsub('є','ie').gsub('Ж','Zh').gsub('ж','zh').gsub('З','Z').gsub('з','z').gsub('И','Y').gsub('и','y').gsub('І','I').gsub('і','i').gsub('Ї','Yi').gsub('ї','i').gsub('Й','Y').gsub('й','i').gsub('К','K').gsub('к','k').gsub('Л','L').gsub('л','l').gsub('М','M').gsub('м','m').gsub('Н','N').gsub('н','n').gsub('О','O').gsub('о','o').gsub('П','P').gsub('п','p').gsub('Р','R').gsub('р','r').gsub('С','S').gsub('с','s').gsub('Т','T').gsub('т','t').gsub('У','U').gsub('у','u').gsub('Ф','F').gsub('ф','f').gsub('Х','Kh').gsub('х','kh').gsub('Ц','Ts').gsub('ц','ts').gsub('Ч','Ch').gsub('ч','ch').gsub('Ш','Sh').gsub('ш','sh').gsub('Щ','Shch').gsub('щ','shch').gsub('Ю','Yu').gsub('ю','iu').gsub('Я','Ya').gsub('я','ia')
+   # ukr_name=ukr_name.gsub('А','A').gsub('а','a').gsub('Б','B').gsub('б','b').gsub('В','V').gsub('в','v').gsub('Г','H').gsub('г','h').gsub('Ґ','G').gsub('ґ','g').gsub('Д','D').gsub('д','d').gsub('Е','E').gsub('е','e').gsub('Є','Ye').gsub('є','ie').gsub('Ж','Zh').gsub('ж','zh').gsub('З','Z').gsub('з','z').gsub('И','Y').gsub('и','y').gsub('І','I').gsub('і','i').gsub('Ї','Yi').gsub('ї','i').gsub('Й','Y').gsub('й','i').gsub('К','K').gsub('к','k').gsub('Л','L').gsub('л','l').gsub('М','M').gsub('м','m').gsub('Н','N').gsub('н','n').gsub('О','O').gsub('о','o').gsub('П','P').gsub('п','p').gsub('Р','R').gsub('р','r').gsub('С','S').gsub('с','s').gsub('Т','T').gsub('т','t').gsub('У','U').gsub('у','u').gsub('Ф','F').gsub('ф','f').gsub('Х','Kh').gsub('х','kh').gsub('Ц','Ts').gsub('ц','ts').gsub('Ч','Ch').gsub('ч','ch').gsub('Ш','Sh').gsub('ш','sh').gsub('Щ','Shch').gsub('щ','shch').gsub('Ю','Yu').gsub('ю','iu').gsub('Я','Ya').gsub('я','ia')
+ replace = {
 
+        "а" => "a",   "б" => "b",   "в" => "v",
+        "г" => "h",   "д" => "d",   "е" => "e",   "є" => "ie",
+        "ж" => "zh",  "з" => "z",   "і" => "i",
+        "и" => "y",   "й" => "i",   "к" => "k",   "ї" => "i",
+        "л" => "l",   "м" => "m",   "н" => "n",   "ґ" => "g",
+        "о" => "o",   "п" => "p",   "р" => "r",
+        "с" => "s",   "т" => "t",   "у" => "u",
+        "ф" => "f",   "х" => "kh",  "ц" => "ts",
+        "ч" => "ch",  "ш" => "sh",  "щ" => "shch",
+        "ю" => "iu",  "я" => "ia",
+
+        "А" => "A",   "Б" => "B",   "В" => "V",
+        "Г" => "H",   "Д" => "D",   "Е" => "E",   "Є" => "Ye",
+        "Ж" => "Zh",  "З" => "Z",   "І" => "I",
+        "И" => "Y",   "Й" => "Y",   "К" => "K",   "Ї" => "Yi",
+        "Л" => "L",   "М" => "M",   "Н" => "N",   "Ґ" => "G",
+        "О" => "O",   "П" => "P",   "Р" => "R",
+        "С" => "S",   "Т" => "T",   "У" => "U",
+        "Ф" => "F",   "Х" => "Kh",  "Ц" => "Ts",
+        "Ч" => "Ch",  "Ш" => "Sh",  "Щ" => "Shch",
+        "Ю" => "Yu",  "Я" => "Ya",
+
+    }
+
+    replace.each do |key, value|
+      ukr_name.gsub!(key, value)
+    end
+    return  ukr_name.to_s
 
 
   end
@@ -115,3 +144,5 @@ end
   end
 
 end
+
+
